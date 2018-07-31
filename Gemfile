@@ -32,6 +32,8 @@ gem 'rubocop', require: false
 
 gem 'devise'
 gem 'devise-jwt', '~> 0.5.6'
+gem 'pagy'
+gem 'api-pagination'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
