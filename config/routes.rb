@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
 
   scope :api, defaults: { format: :json } do
-    scope :v1 do
+    namespace :v1 do
       devise_for :users, skip: [:sessions, :registrations, :passwords]
       devise_scope :user do
         post   'users/sign_up',   to: 'devise/registrations#create'
