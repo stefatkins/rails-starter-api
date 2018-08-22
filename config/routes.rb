@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources name, except: [:new, :edit]
   end
 
-  scope :api, defaults: { format: :json } do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
       devise_for :users, skip: [:sessions, :registrations, :passwords]
       devise_scope :user do
