@@ -28,7 +28,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       render json: UserSerializer.new(@user), status: :created, location: [:api, :v1, @user]
     else
-      render json: { errors: ErrorSerializer.serialize(@user) }, status: :unprocessable_entity
+      render json: { errors: ErrorSerializer.new(@user) }, status: :unprocessable_entity
     end
   end
 
@@ -38,7 +38,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.update(user_params)
       render json: UserSerializer.new(@user)
     else
-      render json: { errors: ErrorSerializer.serialize(@user) }, status: :unprocessable_entity
+      render json: { errors: ErrorSerializer.new(@user) }, status: :unprocessable_entity
     end
   end
 

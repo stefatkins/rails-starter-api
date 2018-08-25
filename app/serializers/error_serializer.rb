@@ -1,10 +1,10 @@
 module ErrorSerializer
-  def self.serialize(object)
+  def self.new(object)
     object.errors.messages.map do |field, errors|
       errors.map do |error_message|
         {
           status: 422,
-          source: {pointer: "/data/attributes/#{field}"},
+          source: { pointer: "/data/attributes/#{field}" },
           detail: error_message
         }
       end
