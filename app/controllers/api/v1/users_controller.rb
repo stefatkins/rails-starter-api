@@ -7,18 +7,18 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  api! "Index users"
+  api :GET, "/users/", "List users"
   def index
     @users = paginate User.all
     render json: UserSerializer.new(@users)
   end
 
-  api! "Show user"
+  api :GET, "/users/:id", "Show user"
   def show
     render json: UserSerializer.new(@user)
   end
 
-  api! "Create user"
+  api :POST, "/users/", "Create user"
   param_group :user
   def create
     @user = User.new(user_params)
@@ -30,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  api! "Update user"
+  api :PUT, "/users/:id", "Update user"
   param_group :user
   def update
     if @user.update(user_params)
@@ -40,7 +40,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  api! "Delete user"
+  api :DELETE, "/users/:id", "Delete user"
   def destroy
     @user.destroy
   end
