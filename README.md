@@ -24,8 +24,10 @@ delete the master.key at the root of the app and generate two secrets keys which
 rails credentials:edit
 ```
 Add this in your credentials :
+```
 secret_key_base : secret key 1 
 jwt_secret: secret key 2
+```
 
 
 ```
