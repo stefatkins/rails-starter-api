@@ -1,8 +1,8 @@
 # README
 
-Rails starter for an API. This starter includes :
+Rails starter for an API :
 
-# Includes
+# Gems includes
 - Database: PosgreSQL
 - Test framework: Rspec
 - Fixture replacement: FactoryBot
