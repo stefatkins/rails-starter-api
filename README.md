@@ -1,6 +1,6 @@
 # Description
 
-Rails starter for an API :
+Rails starter for a Restful API :
 
 # Gems included
 - Database: PosgreSQL
