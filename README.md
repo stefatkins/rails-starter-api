@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails starter for an API. This starter includes :
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Includes
+- Database: PosgreSQL
+- Test framework: Rspec
+- Fixture replacement: FactoryBot
+- Json serialization: Fast json api
+- Api Documentation : apipie
+- Authentication : devise / devise-jwt
+- Scaffolding : api scaffold gem
+- Pagination : pagy / api-pagination
