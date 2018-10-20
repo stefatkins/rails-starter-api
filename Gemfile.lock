@@ -44,8 +44,6 @@ GEM
       tzinfo (~> 1.1)
     api-pagination (4.8.1)
     api_scaffold (0.1.6)
-    apipie-rails (0.5.10)
-      rails (>= 4.1)
     arel (9.0.0)
     ast (2.4.0)
     bcrypt (3.1.12)
@@ -213,7 +211,6 @@ PLATFORMS
 DEPENDENCIES
   api-pagination
   api_scaffold
-  apipie-rails
   bootsnap (>= 1.1.0)
   byebug
   devise
