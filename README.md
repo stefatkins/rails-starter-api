@@ -1,24 +1,41 @@
-# README
+# Description
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails starter for a Restful API :
 
-Things you may want to cover:
+# Gems included
+- Database: PosgreSQL
+- Test framework: Rspec
+- Fixture replacement: FactoryBot
+- Json serialization: Fast json api
+- Api Documentation : apipie
+- Authentication : devise / devise-jwt
+- Scaffolding : api scaffold gem
+- Pagination : pagy / api-pagination
 
-* Ruby version
+# Instructions
 
-* System dependencies
+```
+git clone this repository
+```
 
-* Configuration
+delete the master.key at the root of the app and generate two secrets keys which we will add in our credentials.
 
-* Database creation
+```
+rails credentials:edit
+```
+Add this in your credentials :
+```
+secret_key_base : secret key 1 
+jwt_secret: secret key 2
+```
 
-* Database initialization
 
-* How to run the test suite
+```
+rake db:create
+rake db:migrate
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+See https://github.com/stefatkins/api_scaffold for scaffolding templates
