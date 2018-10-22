@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    @users = paginate User.includes(serialization_options[:include])
+    @users = User.includes(serialization_options[:include]).apply_sorts(params[:sort], allowed: [:created_at])
     if stale?(@users)
       render json: UserSerializer.new(@users, serialization_options)
     end
