@@ -2,16 +2,15 @@ class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    @users = User.includes(serialization_options[:include]).apply_sorts(params[:sort], allowed: [:created_at])
-    if stale?(@users)
-      render json: UserSerializer.new(@users, serialization_options)
-    end
+    @users = User
+              .includes(serialization_options[:include])
+              .filter(params)
+              .apply_sorts(params[:sort], allowed: [:email, :created_at])
+    render json: UserSerializer.new(@users, serialization_options) if stale?(@users)
   end
 
   def show
-    if stale?(@user)
-      render json: UserSerializer.new(@user, serialization_options)
-    end
+    render json: UserSerializer.new(@user, serialization_options) if stale?(@user)
   end
 
   def create
@@ -45,5 +44,4 @@ class Api::V1::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password)
   end
-
 end

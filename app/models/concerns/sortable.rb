@@ -1,12 +1,13 @@
 module Sortable
   extend ActiveSupport::Concern
+
   module ClassMethods
-    def apply_sorts(sort, options = { allowed: [], default: [] } )
+    def apply_sorts(sort, options = { allowed: [], default: [] })
       allowed = options[:allowed].map(&:to_s)
       fields = sort.to_s.split(',')
 
       ordered_fields = convert_to_ordered_hash(fields)
-      filtered_fields = ordered_fields.select { |key, value| allowed.include?(key) }
+      filtered_fields = ordered_fields.select { |key, _value| allowed.include?(key) }
       order = filtered_fields.presence || options[:default]
       self.order(order)
     end
