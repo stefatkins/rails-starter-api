@@ -86,3 +86,6 @@ Layout/MultilineMethodCallIndentation:
 # Needed for Pundit headless policies
 Style/StructInheritance:
   Enabled: false
+
+Rails:
+  Enabled: true
