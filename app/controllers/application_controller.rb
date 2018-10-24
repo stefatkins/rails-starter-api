@@ -5,6 +5,8 @@ class ApplicationController < ActionController::API
   protected
 
   def serialization_options
-    params.slice(:include, :fields).to_unsafe_h
+    options = params.slice(:include, :fields).to_unsafe_h
+    options[:include] = options[:include].split(', ') if options[:include].present?
+    options
   end
 end

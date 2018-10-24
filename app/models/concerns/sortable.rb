@@ -7,7 +7,7 @@ module Sortable
       fields = sort.to_s.split(',')
 
       ordered_fields = convert_to_ordered_hash(fields)
-      filtered_fields = ordered_fields.select { |key, _value| allowed.include?(key) }
+      filtered_fields = ordered_fields.select { |key, _| allowed.include?(key) }
       order = filtered_fields.presence || options[:default]
       self.order(order)
     end
