@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  namespace :api, defaults: { format: :json } do
-    namespace :v1 do
+  scope :api, defaults: { format: :json } do
+    scope :v1 do
       devise_for :users, skip: [:sessions, :registrations, :passwords]
       devise_scope :user do
         post   'users/sign_up',   to: 'devise/registrations#create'
@@ -9,7 +9,13 @@ Rails.application.routes.draw do
         post   'users/password',  to: 'devise/passwords#create'
         patch  'users/password',  to: 'devise/passwords#update'
       end
+    end
+  end
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
       resources :users, except: [:new, :edit]
     end
   end
+
 end
