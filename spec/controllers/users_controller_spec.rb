@@ -38,12 +38,13 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # UsersController. Be sure to keep this updated too.
-  # let(:valid_session) { {} }
+  let(:user) { create(:user) }
+  let(:valid_session) { auth_headers(user) }
 
   # Use this line for sending a user token in the headers
-  # before do
-  #   request.headers.merge!(auth_headers(user_or_admin))
-  # end
+  before do
+    request.headers.merge!(valid_session)
+  end
 
   describe "GET #index" do
     it "returns a success response" do
